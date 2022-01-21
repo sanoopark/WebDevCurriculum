@@ -1,37 +1,74 @@
 # Quest 15. 자동화된 테스트
 
 ## Introduction
-* 이번 퀘스트에서는 자동화된 테스트에 어떤 장점이 있는지, 어떤 식으로 구축할 수 있는지에 대해 알아보겠습니다.
+
+- 이번 퀘스트에서는 자동화된 테스트에 어떤 장점이 있는지, 어떤 식으로 구축할 수 있는지에 대해 알아보겠습니다.
 
 ## Topics
-* Automated Test
-  * TDD
-  * Unit Test
-  * Integration Test
-  * E2E Test
-  * Stub & Mock
-* Jest
-* Puppeteer
+
+- Automated Test
+  - TDD
+  - Unit Test
+  - Integration Test
+  - E2E Test
+  - Stub & Mock
+- Jest
+- Puppeteer
 
 ## Resources
-* [Unit Test (단위 테스트) 도입하기](https://www.popit.kr/unit-test-%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%8F%84%EC%9E%85%ED%95%98%EA%B8%B0-1%ED%8E%B8/)
-* [소프트웨어 테스트 안티 패턴](https://velog.io/@leejh3224/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%95%88%ED%8B%B0-%ED%8C%A8%ED%84%B4)
-* [End-to-End testing with Puppeteer and Jest](https://medium.com/touch4it/end-to-end-testing-with-puppeteer-and-jest-ec8198145321)
-* [Mock & Stub](https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub)
+
+- [Unit Test (단위 테스트) 도입하기](https://www.popit.kr/unit-test-%EB%8B%A8%EC%9C%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%8F%84%EC%9E%85%ED%95%98%EA%B8%B0-1%ED%8E%B8/)
+- [소프트웨어 테스트 안티 패턴](https://velog.io/@leejh3224/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%95%88%ED%8B%B0-%ED%8C%A8%ED%84%B4)
+- [End-to-End testing with Puppeteer and Jest](https://medium.com/touch4it/end-to-end-testing-with-puppeteer-and-jest-ec8198145321)
+- [Mock & Stub](https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub)
 
 ## Checklist
-* 자동화된 테스트를 만드는 것에는 어떤 장점과 단점이 있을까요?
-  * TDD(Test-Driven Development)란 무엇인가요? TDD의 장점과 단점은 무엇일까요?
-* 테스트들 간의 계층에 따라 어떤 단계들이 있을까요?
-  * 유닛 테스트, 통합 테스트, E2E 테스트는 각각 어떤 것을 뜻하나요?
-  * 테스트에 있어서 Stub과 Mock은 어떤 개념을 가리키는 것일까요?
-* Jest는 어떤 일을 하며 어떻게 사용하는 테스트 프레임워크일까요?
-  * Jest 이외의 테스트 프레임워크는 어떤 것이 있고 어떤 장단점이 있을까요?
-* Puppeteer는 어떤 일을 하며 어떻게 사용하는 테스트 프레임워크일까요?
+
+### \# 자동화된 테스트를 만드는 것에는 어떤 장점과 단점이 있을까요?
+
+- 테스트 자동화는 사람이 직접 테스트하지 않고, 어떤 기능을 검증하는 또 다른 코드를 작성하는 방식입니다.
+- 장점 : 테스트에 드는 비용은 매우 낮아진다는 점입니다. 휴먼 에러가 줄어들기 때문에, 테스트에 대한 신뢰도가 높습니다.
+- 단점 : 수동 테스트에 비해 프로그래머가 더 많은 코드를 작성해야 한다는 점입니다.
+
+### \# TDD(Test-Driven Development)란 무엇인가요? TDD의 장점과 단점은 무엇일까요?
+
+- 테스트 코드를 먼저 작성하고 그에 통과하기 위한 코드를 작성하는 방식의 개발 방식입니다.
+- 장점
+  - 유지보수 용이 : 문제가 발생하였을 때 각각의 모듈별로 테스트를 진행해보면 문제를 비교적 쉽게 찾을 수 있습니다.
+  - 테스트 문서 대체 : 정확한 테스트 근거를 산출해 정의서를 작성할 수 있습니다.
+- 단점
+  - 러닝 커브
+  - 개발 비용 증가
+
+### \# 테스트들 간의 계층에 따라 어떤 단계들이 있을까요? (-)
+
+### \# 유닛 테스트, 통합 테스트, E2E 테스트는 각각 어떤 것을 뜻하나요?
+
+- 유닛 테스트 : 코드가 제대로 작동하는지 확인하기 위해 애플리케이션의 개별 모듈을 독립적으로 테스트하는 것을 의미합니다.
+- 통합 테스트 : 다른 모듈이 그룹으로 결합될 때 잘 작동하는지 확인하는 것을 의미합니다.
+- 기능 테스트 : 기능 조각을 테스트하여 코드가 올바른 작업을 수행하는지 확인하는 것을 의미합니다.
+
+### \# 테스트에 있어서 Stub과 Mock은 어떤 개념을 가리키는 것일까요?
+
+- Stub : 아직 준비되지 못한 코드를 미리 정해진 답변으로 반환할 수 있도록 하는 메커니즘입니다.
+- Mock : 유닛 테스트 등을 작성할 때 해당 코드가 의존성을 가지고 있다면 그 의존하는 부분을 가짜로 대체하는 기법입니다.
+
+### \# Jest는 어떤 일을 하며 어떻게 사용하는 테스트 프레임워크일까요?
+
+- Jest는 라이브러리 하나만 설치하면, Test Runner와 Test Mathcher, Test Mock까지 제공해주는 테스팅 프레임워크입니다.
+- [Jest로 비동기 코드 테스트 작성하기](https://www.daleseo.com/jest-async/)
+
+### \# Jest 이외의 테스트 프레임워크는 어떤 것이 있고 어떤 장단점이 있을까요? (-)
+
+### \# Puppeteer는 어떤 일을 하며 어떻게 사용하는 테스트 프레임워크일까요?
+
+- Headless Browser로 CLI에서 테스트합니다. 실제로 브라우저 창을 띄우지 않고 백그라운드에서 가상으로 진행되며, 특정 페이지에 접속하고 렌더링 되는 과정 후 수행하고자 하는 코드를 수행하는데 용이합니다.
 
 ## Quest
-* 직전 퀘스트의 메모장의 서버와 클라이언트 각 부분에 유닛 테스트, 통합 테스트, E2E 테스트 등을 추가해 보세요.
-  * `npm test` 명령을 통해 모든 테스트가 돌고 그 결과를 출력할 수 있어야 합니다.
+
+- 직전 퀘스트의 메모장의 서버와 클라이언트 각 부분에 유닛 테스트, 통합 테스트, E2E 테스트 등을 추가해 보세요.
+  - `npm test` 명령을 통해 모든 테스트가 돌고 그 결과를 출력할 수 있어야 합니다.
 
 ## Advanced
-* 테스트의 커버리지는 어떤 개념일까요? 프로젝트에서 테스트의 커버리지는 어떻게 접근하는 것이 좋을까요?
+
+- 테스트의 커버리지는 어떤 개념일까요? 프로젝트에서 테스트의 커버리지는 어떻게 접근하는 것이 좋을까요?
